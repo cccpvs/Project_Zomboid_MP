@@ -6,3 +6,5 @@ Org folder - Original file, and Decompiler file
 Mod folder - Mod file, and Decompiler mod file
 
 code.java - Lines in modified file only
+
+Files pack for game in folder /ProjectZomboid/
