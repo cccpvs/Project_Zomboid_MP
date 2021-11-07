@@ -586,7 +586,8 @@ function MainScreen:instantiate()
             self.onlineOption:initialise();
             self.bottomPanel:addChild(self.onlineOption);
             self.onlineOption.onMouseDown = MainScreen.onMenuItemMouseDownMainMenu;
-            self.onlineOption:setVisible(true)
+            --This def parametr (false)
+			self.onlineOption:setVisible(true)
             labelY = labelY + labelHgt
 
             self.onlineCoopOption = ISLabel:new(labelX, labelY, labelHgt, getText("UI_mainscreen_coop"), 1, 1, 1, 1, UIFont.Large, true);
@@ -594,7 +595,8 @@ function MainScreen:instantiate()
             self.onlineCoopOption:initialise();
             self.bottomPanel:addChild(self.onlineCoopOption);
             self.onlineCoopOption.onMouseDown = MainScreen.onMenuItemMouseDownMainMenu;
-            self.onlineCoopOption:setVisible(true)
+            --This def parametr (false)
+			self.onlineCoopOption:setVisible(true)
             labelY = labelY + labelHgt
 
             labelY = labelY + labelSeparator
@@ -640,7 +642,7 @@ function MainScreen:instantiate()
             self.bottomPanel:addChild(self.scoreOption);
             self.scoreOption.onMouseDown = MainScreen.onMenuItemMouseDownMainMenu;
             labelY = labelY + labelHgt
-
+             --START This line is without comment
             self.adminPanel = ISLabel:new(labelX, labelY, labelHgt, getText("UI_mainscreen_adminpanel"), 1, 1, 1, 1, UIFont.Large, true);
             self.adminPanel.internal = "ADMINPANEL";
             self.adminPanel:initialise();
@@ -651,6 +653,7 @@ function MainScreen:instantiate()
                 labelY = labelY + labelHgt
                 self.adminPanel:setVisible(true);
             end
+			 --END This line is without comment
 
             if canInviteFriends() then
                 self.inviteOption = ISLabel:new(labelX, labelY, labelHgt, getText("UI_mainscreen_invite"), 1, 1, 1, 1, UIFont.Large, true);
@@ -660,14 +663,14 @@ function MainScreen:instantiate()
                 self.inviteOption.onMouseDown = MainScreen.onMenuItemMouseDownMainMenu;
                 labelY = labelY + labelHgt
             end
-
+            --START This line is without comment
             self.userPanel = ISLabel:new(labelX, labelY, labelHgt, getText("UI_mainscreen_userpanel"), 1, 1, 1, 1, UIFont.Large, true);
             self.userPanel.internal = "USERPANEL";
             self.userPanel:initialise();
             self.bottomPanel:addChild(self.userPanel);
             self.userPanel.onMouseDown = MainScreen.onMenuItemMouseDownMainMenu;
             labelY = labelY + labelHgt
-
+            --END This line is without comment
             labelY = labelY + labelSeparator
         end
 
@@ -853,20 +856,24 @@ function MainScreen:render()
     if self.inGame and isClient() then
         local labelSeparator = 16
         local newY = self.scoreOption:getBottom()
+		--START This line is without comment
         if canSeePlayerStats() or isCoopHost() then
             self.adminPanel:setVisible(true);
             newY = self.adminPanel:getBottom()
         else
             self.adminPanel:setVisible(false);
         end
+		--END This line is without comment
         if self.inviteOption then
             self.inviteOption:setY(newY)
             newY = self.inviteOption:getBottom()
         end
+		--START This line is without comment
         if self.userPanel then
             self.userPanel:setY(newY)
             newY = self.userPanel:getBottom()
         end
+		--END This line is without comment
         newY = newY + labelSeparator
         self.optionsOption:setY(newY)
         newY = self.optionsOption:getBottom()
@@ -2178,9 +2185,13 @@ function MainScreen:onGainJoypadFocus(joypadData)
 		{ self.onlineCoopOption },
 		{ self.returnOption },
 		{ self.scoreOption },
+		--START This line is without comment
 		{ self.adminPanel },
+		--END This line is without comment
 		{ self.inviteOption },
+		--START This line is without comment
 		{ self.userPanel },
+		--END This line is without comment
 		{ self.optionsOption },
 		{ self.modsOption },
 		{ self.exitOption },
