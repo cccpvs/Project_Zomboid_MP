@@ -1,4 +1,4 @@
-# Project_Zomboid_MP
+# Project Zomboid MP
 
 ### v41.65
 
